@@ -3,6 +3,8 @@ import pandas as pd
 import duckdb
 import io
 
+# failed pr
+
 # ------------------------------------------------------------
 # CROSS JOIN EXERCISES
 # ------------------------------------------------------------

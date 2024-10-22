@@ -3,6 +3,7 @@ import pandas as pd
 import duckdb
 import io
 
+# failed pr
 
 with st.sidebar:
     option = st.selectbox(

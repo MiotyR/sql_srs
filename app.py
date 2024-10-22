@@ -5,6 +5,16 @@ import io
 
 # failed pr
 
+with st.sidebar:
+    option = st.selectbox(
+        "What would you like to review?",
+        ("Joins", "GroupBy", "Window Functions"),
+        index=None,
+        placeholder="Select a theme ..."
+    )
+
+    st.write("You selected:", option)
+    
 # ------------------------------------------------------------
 # CROSS JOIN EXERCISES
 # ------------------------------------------------------------

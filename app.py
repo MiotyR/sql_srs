@@ -7,14 +7,15 @@ SQL SRS
 Spaced Repetition System SQL Practice
 """)
 
-option = st.selectbox(
-    "What would you like to review?",
-    ("Joins", "GroupBy", "Window Functions"),
-    index=None,
-    placeholder="Select a theme ..."
-)
+with st.sidebar:
+    option = st.selectbox(
+        "What would you like to review?",
+        ("Joins", "GroupBy", "Window Functions"),
+        index=None,
+        placeholder="Select a theme ..."
+    )
 
-st.write("You selected:", option)
+    st.write("You selected:", option)
 
 
 data = {"a": [0, 1, 2], "b": [3, 4, 5]}

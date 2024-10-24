@@ -28,18 +28,22 @@ with st.sidebar:
     st.write("You selected:", theme)
 
     if theme:
-        exercise = (
-            con.execute(f"SELECT * FROM memory_state WHERE theme = '{theme}'")
-            .df()
-            .sort_values(by="last_reviewed")
-        )
-        st.write(exercise)
+        st.write("You selected:", theme)
+        selected_exercise_query = f"SELECT * FROM memory_state WHERE theme = '{theme}'"
+    else:
+        selected_exercise_query = "SELECT * FROM memory_state"
 
-        exercise_name = exercise.iloc[0]["exercise_name"]
-        with open(f"answers/{exercise_name}.sql", "r") as f:
-            answer = f.read()
+    exercise = (
+        con.execute(selected_exercise_query)
+        .df()
+        .sort_values(by="last_reviewed")
+    )
+    st.write(exercise)
+    exercise_name = exercise.iloc[0]["exercise_name"]
+    with open(f"answers/{exercise_name}.sql", "r") as f:
+        answer = f.read()
 
-        solution_df = con.execute(answer).df()
+    solution_df = con.execute(answer).df()
 
 st.header("Enter your code:")
 query = st.text_area(label="Your SQL code here", key="user_input")

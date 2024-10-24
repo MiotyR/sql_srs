@@ -138,3 +138,5 @@ WAGES = {
 }
 wages = pd.DataFrame(WAGES)
 con.execute("CREATE OR REPLACE TABLE wages AS SELECT * FROM wages")
+
+con.close()
